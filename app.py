@@ -5,8 +5,10 @@ import os
 # --- App Setup ---
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
-DB_PATH = 'feedback.db'
-ADMIN_PASSWORD = 'admin123'  # Simple password for admin access
+# Vercel's filesystem is read-only except /tmp
+DB_PATH = '/tmp/feedback.db' if os.environ.get('VERCEL') else 'feedback.db'
+
+ADMIN_PASSWORD = 'admin123'  # Change this to your own password
 
 
 # --- Database Initialization ---
@@ -29,6 +31,7 @@ def init_db():
 
 # --- Helper: get a DB connection ---
 def get_db():
+    init_db()  # ensure table exists on every request (important for Vercel /tmp)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row   # rows behave like dicts
     return conn
