@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Submitted – EduFeedback</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    /* Extra: animate the checkmark on load */
+    .success-icon {
+      animation: bounceIn 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    }
+    @keyframes bounceIn {
+      0%   { transform: scale(0.3); opacity: 0; }
+      60%  { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="/" class="nav-brand"><span>📋</span> EduFeedback</a>
+    <div class="nav-links">
+      <a href="/">Submit Feedback</a>
+      <a href="/admin">Admin</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Success Card -->
+    <div class="card success-card">
+      <div class="success-icon">✅</div>
+      <h1>Feedback Received!</h1>
+      <p>
+        Thank you for taking the time to share your thoughts.<br/>
+        Your feedback has been saved successfully.
+      </p>
+
+      <!-- Action Buttons -->
+      <a href="/" class="btn btn-primary">
+        ➕ Submit Another
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 EduFeedback — School Feedback System
+  </footer>
+
+</body>
+</html>

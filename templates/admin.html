@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel – EduFeedback</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="/" class="nav-brand"><span>📋</span> EduFeedback</a>
+    <div class="nav-links">
+      <a href="/">Submit Feedback</a>
+      <a href="/admin" class="active">Admin</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Admin Panel</h1>
+      <p>View, edit, and delete all submitted feedback entries.</p>
+    </div>
+
+    <!-- ── LOGIN SECTION (shown first) ── -->
+    <div id="login-section">
+      <div class="card" style="max-width:380px; text-align:center;">
+        <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔐</div>
+        <h2 style="font-family:var(--font-head); margin-bottom:0.4rem;">Admin Access</h2>
+        <p style="color:var(--muted); margin-bottom:1.2rem;">Enter the password to view feedback.</p>
+
+        <div class="form-group">
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+        <button id="loginBtn" class="btn btn-primary btn-full">
+          🔓 Login
+        </button>
+        <p style="margin-top:0.8rem; font-size:0.8rem; color:var(--muted);">
+          Default password: <code>admin123</code>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── ADMIN SECTION (shown after login) ── -->
+    <div id="admin-section" style="display:none; width:100%;">
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-number" id="stat-total">0</div>
+          <div class="stat-label">Total Feedback</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-events">0</div>
+          <div class="stat-label">Unique Events</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-latest">—</div>
+          <div class="stat-label">Latest Submission</div>
+        </div>
+      </div>
+
+      <!-- Feedback Table -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Event</th>
+              <th>Feedback</th>
+              <th>Submitted At</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="feedbackTableBody">
+            <tr>
+              <td colspan="6" class="no-data">Loading…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- end #admin-section -->
+
+  </main>
+
+  <footer>
+    &copy; 2025 EduFeedback — School Feedback System
+  </footer>
+
+  <!-- ── EDIT MODAL ── -->
+  <div class="modal-overlay" id="editModal">
+    <div class="modal">
+      <h2>✏️ Edit Feedback</h2>
+
+      <div class="form-group">
+        <label for="editName">Name</label>
+        <input type="text" id="editName" placeholder="Student name" />
+      </div>
+
+      <div class="form-group">
+        <label for="editEvent">Event / Course</label>
+        <select id="editEvent">
+          <option value="">— Select an event —</option>
+          <option value="Science Fair 2025">Science Fair 2025</option>
+          <option value="Annual Sports Day">Annual Sports Day</option>
+          <option value="Mathematics Olympiad">Mathematics Olympiad</option>
+          <option value="Cultural Fest">Cultural Fest</option>
+          <option value="Computer Science Workshop">Computer Science Workshop</option>
+          <option value="English Debate Competition">English Debate Competition</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="editMessage">Feedback</label>
+        <textarea id="editMessage" placeholder="Feedback message"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button id="saveEditBtn" class="btn btn-primary">💾 Save Changes</button>
+        <button class="btn" style="background:var(--border);" onclick="closeEditModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

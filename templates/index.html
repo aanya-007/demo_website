@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Feedback – EduFeedback</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="/" class="nav-brand"><span>📋</span> EduFeedback</a>
+    <div class="nav-links">
+      <a href="/" class="active">Submit Feedback</a>
+      <a href="/admin">Admin</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Share Your Feedback</h1>
+      <p>Help us improve by telling us about your experience.</p>
+    </div>
+
+    <!-- Feedback Form Card -->
+    <div class="card">
+      <form id="feedbackForm" novalidate>
+
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="e.g. Priya Sharma"
+            autocomplete="name"
+          />
+          <span class="error-msg" id="name-error"></span>
+        </div>
+
+        <!-- Event Dropdown -->
+        <div class="form-group">
+          <label for="event">Event / Course</label>
+          <select id="event" name="event">
+            <option value="">— Select an event —</option>
+            <option value="Science Fair 2025">Science Fair 2025</option>
+            <option value="Annual Sports Day">Annual Sports Day</option>
+            <option value="Mathematics Olympiad">Mathematics Olympiad</option>
+            <option value="Cultural Fest">Cultural Fest</option>
+            <option value="Computer Science Workshop">Computer Science Workshop</option>
+            <option value="English Debate Competition">English Debate Competition</option>
+          </select>
+          <span class="error-msg" id="event-error"></span>
+        </div>
+
+        <!-- Feedback Textarea -->
+        <div class="form-group">
+          <label for="message">Your Feedback</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write your thoughts, suggestions, or experience here…"
+          ></textarea>
+          <span class="error-msg" id="message-error"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-full">
+          ✉️ Submit Feedback
+        </button>
+
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 EduFeedback — School Feedback System
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
